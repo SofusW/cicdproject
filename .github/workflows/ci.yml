@@ -23,5 +23,19 @@ jobs:
       - name: Byg med Maven
         run: mvn compile
 
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Hent koden
+        uses: actions/checkout@v4
+
+      - name: Sæt Java op
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
       - name: Kør tests
         run: mvn test
